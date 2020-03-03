@@ -176,9 +176,11 @@ win32 {
 # out SOURCES, so that the Qt Creator .pro modification is ineffectual.
 DISTFILES *= ""
 DISTFILES = ""
-HEADERS *= ""
+HEADERS *= "" \
+    src/DrawTriangle.h
 HEADERS = ""
-SOURCES *= ""
+SOURCES *= "" \
+    src/DrawTriangle.cpp
 SOURCES = ""
 
 # include various source .cpp files and header .h files in the build process

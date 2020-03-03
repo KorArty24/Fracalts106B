@@ -1,3 +1,5 @@
+
+
 /*
  * File: fractals.cpp
  * --------------------------
@@ -11,6 +13,7 @@
 #include <cmath>
 #include "gbufferedimage.h"
 #include "plasmacolor.h"
+#include "DrawTriangle.h"
 
 using namespace std;
 //gfgfg
@@ -28,6 +31,14 @@ using namespace std;
  */
 void drawSierpinskiTriangle(GWindow& window, double x, double y, double sideLength, int order) {
     // TODO: remove the lines below and write this function
+    if (order ==1) DrawTriangle(x,y,sideLength);
+    else {
+        double dx=sideLength/2;
+        drawSierpinskiTriangle(window,x,y,dx,order-1);
+        drawSierpinskiTriangle(window,x+sideLength,y,dx,order-1);
+        drawSierpinskiTriangle(window, x+sideLength/2,y,dx,order-1);
+    }
+
     (void) window;
     (void) x;
     (void) y;
