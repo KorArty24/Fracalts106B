@@ -31,19 +31,16 @@ using namespace std;
  */
 void drawSierpinskiTriangle(GWindow& window, double x, double y, double sideLength, int order) {
     // TODO: remove the lines below and write this function
-    if (order ==1) DrawTriangle(x,y,sideLength);
+
+    if (order ==1) return DrawTriangle(x,y,sideLength,window);
     else {
-        double dx=sideLength/2;
-        drawSierpinskiTriangle(window,x,y,dx,order-1);
-        drawSierpinskiTriangle(window,x+sideLength,y,dx,order-1);
-        drawSierpinskiTriangle(window, x+sideLength/2,y,dx,order-1);
+
+       drawSierpinskiTriangle(window,x,y,sideLength/2,order-1);
+       drawSierpinskiTriangle(window,x+sideLength/2,y,sideLength/2,order-1);
+       drawSierpinskiTriangle(window, x+sideLength/4,y+sideLength/2*sqrt(3)/2,sideLength/2,order-1);
     }
 
-    (void) window;
-    (void) x;
-    (void) y;
-    (void) sideLength;
-    (void) order;
+
 }
 
 /**
